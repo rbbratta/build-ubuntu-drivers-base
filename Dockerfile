@@ -16,8 +16,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean
 
 
-RUN wget -nv 'http://downloads.sourceforge.net/project/e1000/ixgbe%20stable/4.4.6/ixgbe-4.4.6.tar.gz?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fe1000%2Ffiles%2Fixgbe%2520stable%2F4.4.6%2F&ts=1472073534&use_mirror=heanet'  && tar -xvf ixgbe-4.4.6.tar.gz && rm ixgbe-4.4.6.tar.gz
-RUN wget -nv 'http://downloads.sourceforge.net/project/e1000/i40e%20stable/1.5.19/i40e-1.5.19.tar.gz?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fe1000%2Ffiles%2Fi40e%2520stable%2F1.5.19%2F&ts=1472073621&use_mirror=heanet'  && tar -xvf i40e-1.5.19.tar.gz && rm i40e-1.5.19.tar.gz
+RUN curl -sS -o ixgbe-4.4.6.tar.gz http://downloads.sourceforge.net/project/e1000/ixgbe%20stable/4.4.6/ixgbe-4.4.6.tar.gz?use_mirror=heanet'  && tar -xvf ixgbe-4.4.6.tar.gz && rm ixgbe-4.4.6.tar.gz
+RUN curl -sS -o i40e-1.5.19.tar.gz http://downloads.sourceforge.net/project/e1000/i40e%20stable/1.5.19/i40e-1.5.19.tar.gz?use_mirror=heanet'  && tar -xvf i40e-1.5.19.tar.gz && rm i40e-1.5.19.tar.gz
 
 
 RUN make -C /root/ixgbe-4.4.6/src install BUILD_KERNEL=3.13.0-93-generic
